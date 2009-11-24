@@ -1,0 +1,34 @@
+<div class='toolbar'>
+  <ul class='actions'>
+    <li>
+      <%= button_link_to t("new_shipment_center"), new_object_url, :icon => 'add'  %>
+    </li>
+  </ul>
+  <br class='clear' />
+</div>
+
+<h1><%= t("shipment_centers") %></h1>
+
+<table class="index">
+  <thead>
+    <th><%= t("name") %></th>
+    <th><%= t("in_stock_shipping_time") %></th>
+    <th><%= t("out_stock_shipping_time") %></th>
+    <th><%= t("action") %></th>
+  </thead>
+  <tbody>
+    <% @shipment_centers.each do |shipment_center|%>
+    <tr id="<%= dom_id shipment_center %>">
+      <td><%= shipment_center.name %></td>
+      <td><%= shipment_center.in_stock_shipping_time %></td>
+      <td><%= shipment_center.out_stock_shipping_time %></td>      
+      <td>
+      	<%= link_to_edit shipment_center %> &nbsp;
+      	<%= link_to_delete shipment_center %>
+      </td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+
+      

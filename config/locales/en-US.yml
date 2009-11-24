@@ -1,0 +1,8 @@
+en-US:
+  new_shipment_center: "New shipment center"
+  editing_shipment_center: "Editing shipment center"
+  shipment_center: "Shipment center"
+  shipment_centers: "Shipment centers"
+  in_stock_shipping_time: "Shipping time (in stock)"
+  out_stock_shipping_time: "Shipping time (out stock)"
+  manage_shipment_centers: "Manage shipment centers"
