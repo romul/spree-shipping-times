@@ -6,3 +6,7 @@ en-US:
   in_stock_shipping_time: "Shipping time (in stock)"
   out_stock_shipping_time: "Shipping time (out stock)"
   manage_shipment_centers: "Manage shipment centers"
+  new_shipping_restriction: "New shipping restriction"
+  editing_shipping_restriction: "Editing shipping restrictions"
+  shipping_restriction: "Shipping restriction"  
+  shipping_restrictions: "Shipping restrictions"

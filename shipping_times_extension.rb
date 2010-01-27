@@ -14,6 +14,7 @@ class ShippingTimesExtension < Spree::Extension
 
     Product.class_eval do
       belongs_to :shipment_center
+      has_many :shipping_restrictions
       
       def ship_center
         center = self.shipment_center
@@ -23,6 +24,19 @@ class ShippingTimesExtension < Spree::Extension
         end
         center
       end
+      
+      def all_shipping_restrictions
+        (self.product_groups.map{|pg| pg.shipping_restrictions}.flatten.compact + 
+          self.shipping_restrictions).uniq
+      end
+    end
+    
+    ProductGroup.class_eval do
+      has_many :shipping_restrictions
+    end
+    
+    Zone.class_eval do
+      has_many :shipping_restrictions
     end
 
     # Add a link to the shipment centers administration page on the configuration page
