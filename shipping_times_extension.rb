@@ -39,6 +39,22 @@ class ShippingTimesExtension < Spree::Extension
       has_many :shipping_restrictions
     end
     
+    Checkout.class_eval do
+      validate :check_shipping_restrictions
+ 
+      protected
+      def check_shipping_restrictions
+        zone = self.ship_address.zone
+        self.order.line_items.each do |line_item|
+          line_item.product.all_shipping_restrictions.each do |restriction|
+            unless restriction.covers_zone?(zone)
+              errors.add("ship_address.statename", line_item.product.name + " could not be delivered to your shipping address")
+            end
+          end
+        end
+      end
+    end
+    
     Admin::ProductsController.class_eval do
       before_filter :load_shipment_centers, :only => :edit
       

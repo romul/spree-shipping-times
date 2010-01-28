@@ -10,6 +10,10 @@ class ShippingRestriction < ActiveRecord::Base
     product == self.product || product.product_groups.include?(self.product_group)
   end
   
+  def covers_zone?(zone)
+    zone == self.zone
+  end
+  
   def product_sku
     self.product.try(:sku)
   end
