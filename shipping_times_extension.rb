@@ -38,16 +38,6 @@ class ShippingTimesExtension < Spree::Extension
     Zone.class_eval do
       has_many :shipping_restrictions
     end
-
-    # Add a link to the shipment centers administration page on the configuration page
-    Admin::ConfigurationsController.class_eval do
-      before_filter :add_shipment_center_links, :only => :index
-
-      def add_shipment_center_links
-        @extension_links << {:link => admin_shipment_centers_path, :link_text => t(:shipment_centers), :description => t(:manage_shipment_centers)}
-      end
-
-    end
     
     Admin::ProductsController.class_eval do
       before_filter :load_shipment_centers, :only => :edit
