@@ -1,0 +1,21 @@
+<% if @product.all_shipping_restrictions.size > 0 %>
+  <%= javascript_include_tag 'jquery.alerts/jquery.alerts.js' %>
+  <%= stylesheet_link_tag '/javascripts/jquery.alerts/jquery.alerts.css' %>
+
+  <h4><%= t :shipping_restriction_notice %>
+  <a id='show_restrictions' href='#'><%= t :see_details %></a></h4>
+  <div id="restrictions" style="display:none">
+    <%= t :shipping_restriction_message %>:<ul>
+    <% @product.all_shipping_restrictions.each do |sr| -%>
+      <%= content_tag :li, sr.zone.name -%>
+    <% end -%>
+    </ul>
+  </div>
+  
+  <script type="text/javascript">
+    $("a#show_restrictions").click(function(){
+      jAlert($("#restrictions").html(), '<%= t :shipping_restrictions %>');
+      return false;
+    });
+  </script>  
+<% end %>

@@ -10,3 +10,6 @@ en-US:
   editing_shipping_restriction: "Editing shipping restrictions"
   shipping_restriction: "Shipping restriction"  
   shipping_restrictions: "Shipping restrictions"
+  shipping_restriction_notice: "NOTICE: There are shipping restrictions on this product."
+  shipping_restriction_message: "This product can be shipped only to following zones"
+  see_details: "See details"
