@@ -44,6 +44,7 @@ class ShippingTimesExtension < Spree::Extension
  
       protected
       def check_shipping_restrictions
+        return unless self.ship_address
         zone = self.ship_address.zone
         self.order.line_items.each do |line_item|
           line_item.product.all_shipping_restrictions.each do |restriction|
